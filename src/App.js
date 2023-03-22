@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import Header from './Components/Header/Header';
+import AdminNotification from './Components/AdminNotification/AdminNotification';
+// import DeveloperNotification from './Components/DeveloperNotification/DeveloperNotification';
+// import CustomerNotification from './Components/CustomerNotification/CustomerNotification';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <BrowserRouter>
+     <Routes>
+     <Route path = "/" exact element = {<Header/>}></Route>
+    
+        <Route path = "/admin" exact element = {<AdminNotification/>}></Route>
+        {/* <Route path = "/customer" exact element={<CustomerNotification/>}></Route>
+        <Route path = "/developer" exact element = {<DeveloperNotification/>}></Route> */}
+
+     </Routes>
+     </BrowserRouter>
     </div>
   );
 }
